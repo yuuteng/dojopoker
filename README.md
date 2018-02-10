@@ -23,14 +23,20 @@ Une main de poker est faite de 5 cartes et les mains sont classées de la plus p
 
 ###### Exemples
 
-Main 1:  2Tr 6Ca 7Ca 8Tr APi
-Main 2:  3Tr 5Ca 9Ca DCo RCo
-La main 1 gagne avec carte la plus élevée : As
+Main 1:  2Tr 6Ca 7Ca 8Tr APi  
 
-Main 1:  2Tr 6Ca 7Ca 8Tr APi
-Main 2:  3Tr 5Ca 5Co DCo RCo
+Main 2:  3Tr 5Ca 9Ca DCo RCo  
+
+La main 1 gagne avec carte la plus élevée : As    
+
+Main 1:  2Tr 6Ca 7Ca 8Tr APi  
+
+Main 2:  3Tr 5Ca 5Co DCo RCo  
+
 La main 2 gagne avec paire de 5
 
-Main 1:  2Tr 6Ca 3Ca 8Tr APi
-Main 2:  3Tr 6Pi 2Ca 8Co ACo
+Main 1:  2Tr 6Ca 3Ca 8Tr APi  
+
+Main 2:  3Tr 6Pi 2Ca 8Co ACo  
+
 Egalite
