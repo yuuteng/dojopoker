@@ -1,7 +1,10 @@
 package control;
 
+import model.Card;
 import model.Deck;
 import model.Player;
+
+import java.util.List;
 
 public class Game {
     private Player player1;
@@ -13,7 +16,8 @@ public class Game {
         player2 = new Player("player2");
         deck = new Deck();
         deck.shuffle();
-        for(int i=0;i<2;i++) {
+        //one card
+        for(int i=0;i<1;i++) {
             player1.addCard(deck.draw());
             player2.addCard(deck.draw());
         }
@@ -25,4 +29,6 @@ public class Game {
         System.out.println("Name: " + player2.getName());
         player2.showAllCard();
     }
+
+
 }
