@@ -22,7 +22,7 @@ public enum Rank {
         return name;
     }
 
-    int getValue() {
+    public int getValue() {
         return value;
     }
 }
