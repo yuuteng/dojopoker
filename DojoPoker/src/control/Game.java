@@ -44,7 +44,6 @@ public class Game {
             result = compareHighCard(handCards1,handCards2);
 
         }
-
         switch (result) {
             case 1:
                 System.out.println("player1 win");
