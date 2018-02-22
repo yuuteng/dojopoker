@@ -11,4 +11,8 @@ public class Card {
     public String toString() {
         return "Card: "+rank.getName();
     }
+
+    public int getValue() {
+        return rank.getValue();
+    }
 }

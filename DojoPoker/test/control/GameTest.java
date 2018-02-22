@@ -15,10 +15,22 @@ import static org.junit.jupiter.api.Assertions.*;
  * @University: University of Nice
  */
 class GameTest {
-    Game game;
+    static Game game;
     @BeforeAll
-    void setUp() {
+    static void setUp() {
         game = new Game();
     }
 
+    @Test
+    void testCompareHighCard() {
+        Card card1 = new Card(Rank.ACE);
+        Card card2 = new Card(Rank.TWO);
+        List<Card> cardlist1 = new ArrayList<Card>();
+        List<Card> cardlist2 = new ArrayList<Card>();
+        cardlist1.add(card1);
+        cardlist2.add(card2);
+        int actual = game.compareHighCard(cardlist1, cardlist2);
+        int expected = 1;
+        assertEquals(actual,expected);
+    }
 }
