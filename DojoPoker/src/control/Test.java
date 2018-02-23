@@ -12,7 +12,6 @@ public class Test {
         Game game = new Game();
         game.show();
         game.compare();
+
     }
-
-
 }

@@ -16,11 +16,13 @@ public class Game {
         player2 = new Player("player2");
         deck = new Deck();
         deck.shuffle();
-        //one card
-        for(int i=0;i<1;i++) {
+        //two card
+        for (int i = 0; i < 5; i++) {
             player1.addCard(deck.draw());
             player2.addCard(deck.draw());
         }
+        player1.handleCards();
+        player2.handleCards();
     }
 
     public void show(){
@@ -34,7 +36,11 @@ public class Game {
         List<Card> handCards1 = player1.getCards();
         List<Card> handCards2 = player2.getCards();
         int result = -1;
-        result = compareHighCard(handCards1,handCards2);
+        if (player1.havePair() > 0 || player2.havePair() > 0) {
+            result = comparePair();
+        } else {
+            result = compareHighCard(handCards1,handCards2);
+        }
         switch (result) {
             case 1:
                 System.out.println("player1 win");
@@ -58,6 +64,16 @@ public class Game {
             return 2;
         } else {
             return 0;
+        }
+    }
+
+    public int comparePair() {
+        if (player1.havePair() == player2.havePair()) {
+            return 0;
+        } else if (player1.havePair() > player2.havePair()) {
+            return 1;
+        } else {
+            return 2;
         }
     }
 }
