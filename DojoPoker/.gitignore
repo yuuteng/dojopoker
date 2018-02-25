@@ -6,8 +6,9 @@
 *.iml
 *.ipr
 *.iws
-.idea/
 out/
+.idea/
+
 gen
 
 # Mac
