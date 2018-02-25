@@ -4,6 +4,23 @@
 
 # IntelliJ project files
 *.iml
-.idea
-.out
+*.ipr
+*.iws
+out/
+.idea/
+
 gen
+
+# Mac
+.DS_Store
+
+# Maven
+target/
+release.properties
+
+# Eclipse
+.classpath
+.project
+.externalToolBuilders/
+.metadata
+.settings

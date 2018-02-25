@@ -26,7 +26,7 @@ class GameTest {
     }
 
     @Test
-    void testCompareHighCard() {
+    void compareHighCard() {
         Card card1 = new Card(Rank.ACE);
         Card card2 = new Card(Rank.TWO);
         List<Card> cardlist1 = new ArrayList<Card>();
@@ -37,4 +37,5 @@ class GameTest {
         int expected = 1;
         assertEquals(actual,expected);
     }
+
 }
