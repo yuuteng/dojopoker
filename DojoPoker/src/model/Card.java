@@ -1,5 +1,6 @@
 package model;
 
+
 public class Card implements Comparable{
     Rank rank;
 
@@ -15,7 +16,6 @@ public class Card implements Comparable{
     public int getValue() {
         return rank.getValue();
     }
-
     @Override
     public int compareTo(Object o) {
         if(rank.getValue()>((Card) o).getValue()){
