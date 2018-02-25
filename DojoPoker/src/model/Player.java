@@ -40,7 +40,7 @@ public class Player {
         Collections.reverse(handCards);
     }
 
-    //the num of pair (have)  0 dont have
+    //the num of pair (have)  0 don't have
     public int havePair() {
         for (int i = 0; i < handCards.size(); i++) {
             for (int j = i + 1; j < handCards.size(); j++) {
@@ -52,7 +52,7 @@ public class Player {
         return 0;
     }
 
-    //the num of three (have)  0 dont have
+    //the num of three (have)  0 don't have
     public int haveThree() {
         for (int i = 0; i < handCards.size(); i++) {
             for (int j = i + 1; j < handCards.size(); j++) {
@@ -67,4 +67,25 @@ public class Player {
         }
         return 0;
     }
+
+    //the num of three (have) 0 don't have
+    public int haveFour() {
+        for (int i = 0; i < handCards.size(); i++) {
+            for (int j = i + 1; j < handCards.size(); j++) {
+                if (handCards.get(i).getValue() == handCards.get(j).getValue()) {
+                    for (int k = j + 1; k < handCards.size(); k++) {
+                        if (handCards.get(j).getValue() == handCards.get(k).getValue()) {
+                            for (int l = k + 1; l < handCards.size(); l++) {
+                                if (handCards.get(k).getValue() == handCards.get(l).getValue()) {
+                                    return handCards.get(i).getValue();
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        return 0;
+    }
+
 }

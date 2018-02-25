@@ -17,7 +17,7 @@ public class Game {
         deck = new Deck();
         deck.shuffle();
         //three card
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < 26; i++) {
 
             player1.addCard(deck.draw());
             player2.addCard(deck.draw());
@@ -37,7 +37,9 @@ public class Game {
         List<Card> handCards1 = player1.getCards();
         List<Card> handCards2 = player2.getCards();
         int result = -1;
-        if (player1.haveThree() > 0 || player2.haveThree() > 0) {
+        if (player1.haveFour() > 0 || player2.haveFour() > 0) {
+            result = compareFour();
+        } else if (player1.haveThree() > 0 || player2.haveThree() > 0) {
             result = compareThree();
         } else if (player1.havePair() > 0 || player2.havePair() > 0) {
             result = comparePair();
@@ -88,6 +90,17 @@ public class Game {
             return 1;
 
         } else {
+            return 2;
+        }
+    }
+    // 0 equal 1 p1win  2 p2win
+    public int compareFour(){
+        if (player1.haveFour() == player2.haveFour()) {
+            return 0;
+        }else if (player1.haveFour() > player2.haveFour()) {
+            return 1;
+
+        }else{
             return 2;
         }
     }
