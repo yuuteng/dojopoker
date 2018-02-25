@@ -12,18 +12,18 @@ import static org.junit.jupiter.api.Assertions.*;
  * @Copyright: Copyright (c) 2018
  * @University: University of Nice
  */
-class CardTest {
-    static Card card1;
-    static Card card2;
+class DeckTest {
+    static Deck deck;
+
     @BeforeAll
     static void setUp() {
-        card1 = new Card(Rank.ACE);
-        card2 = new Card(Rank.FIVE);
+        deck = new Deck();
     }
+
     @Test
-    void compareTo() {
-        int actual = card1.compareTo(card2);
-        int expected = 1;
-        assertEquals(expected, actual);
+    void draw() {
+        Card expected = new Card(Rank.ACE);
+        Card actual = deck.draw();
+        assertEquals(expected.getValue(), actual.getValue());
     }
 }
