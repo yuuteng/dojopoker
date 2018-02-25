@@ -2,7 +2,6 @@ package control;
 
 /**
  * @Project: DojoPoker
- * @Author: YU Teng
  * @Description:
  * @Version: 1.0
  * @Copyright: Copyright (c) 2018
