@@ -16,11 +16,14 @@ public class Game {
         player2 = new Player("player2");
         deck = new Deck();
         deck.shuffle();
-        //one card
-        for(int i=0;i<1;i++) {
+        //three card
+        for (int i = 0; i < 5; i++) {
+
             player1.addCard(deck.draw());
             player2.addCard(deck.draw());
         }
+        player1.handleCards();
+        player2.handleCards();
     }
 
     public void show(){
@@ -34,7 +37,13 @@ public class Game {
         List<Card> handCards1 = player1.getCards();
         List<Card> handCards2 = player2.getCards();
         int result = -1;
-        result = compareHighCard(handCards1,handCards2);
+        if (player1.haveThree() > 0 || player2.haveThree() > 0) {
+            result = compareThree();
+        } else if (player1.havePair() > 0 || player2.havePair() > 0) {
+            result = comparePair();
+        } else {
+            result = compareHighCard(handCards1,handCards2);
+        }
         switch (result) {
             case 1:
                 System.out.println("player1 win");
@@ -60,6 +69,26 @@ public class Game {
             return 0;
         }
     }
+    // 0 equal 1 p1win  2 p2win
+    public int comparePair() {
+        if (player1.havePair() == player2.havePair()) {
+            return 0;
+        } else if (player1.havePair() > player2.havePair()) {
+            return 1;
 
+        } else {
+            return 2;
+        }
+    }
+    // 0 equal 1 p1win  2 p2win
+    public int compareThree() {
+        if (player1.haveThree() == player2.haveThree()) {
+            return 0;
+        } else if (player1.haveThree() > player2.haveThree()) {
+            return 1;
 
+        } else {
+            return 2;
+        }
+    }
 }

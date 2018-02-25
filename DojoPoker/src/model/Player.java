@@ -1,6 +1,7 @@
 package model;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Player {
@@ -32,5 +33,38 @@ public class Player {
 
     public List<Card> getCards() {
         return handCards;
+    }
+    //sort all cards
+    public void handleCards(){
+        Collections.sort(handCards);
+        Collections.reverse(handCards);
+    }
+
+    //the num of pair (have)  0 dont have
+    public int havePair() {
+        for (int i = 0; i < handCards.size(); i++) {
+            for (int j = i + 1; j < handCards.size(); j++) {
+                if (handCards.get(i).getValue() == handCards.get(j).getValue()) {
+                    return handCards.get(i).getValue();
+                }
+            }
+        }
+        return 0;
+    }
+
+    //the num of three (have)  0 dont have
+    public int haveThree() {
+        for (int i = 0; i < handCards.size(); i++) {
+            for (int j = i + 1; j < handCards.size(); j++) {
+                if (handCards.get(i).getValue() == handCards.get(j).getValue()) {
+                    for (int k = j + 1; k < handCards.size(); k++) {
+                        if (handCards.get(j).getValue() == handCards.get(k).getValue()) {
+                            return handCards.get(i).getValue();
+                        }
+                    }
+                }
+            }
+        }
+        return 0;
     }
 }

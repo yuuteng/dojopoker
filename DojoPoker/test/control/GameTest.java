@@ -1,6 +1,6 @@
 package control;
 
-import model.Player;
+
 import model.Card;
 import model.Rank;
 import org.junit.jupiter.api.BeforeAll;
@@ -9,12 +9,11 @@ import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 
 /**
  * @Project: DojoPoker
- * @Author: YU Teng
- * @Description:
  * @Version: 1.0
  * @Copyright: Copyright (c) 2018
  * @University: University of Nice
