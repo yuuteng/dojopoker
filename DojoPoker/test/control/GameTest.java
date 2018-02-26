@@ -38,4 +38,18 @@ class GameTest {
         assertEquals(actual,expected);
     }
 
+    @Test
+    void comparePair() {
+        Card card1 = new Card(Rank.FOUR);
+        Card card2 = new Card(Rank.TWO);
+        List<Card> handCards1 = new ArrayList<Card>();
+        List<Card> handCards2 = new ArrayList<Card>();
+        handCards1.add(card1);
+        handCards1.add(card1);
+        handCards2.add(card2);
+        handCards2.add(card2);
+        int actual = handCards1.get(0).getValue() - handCards2.get(0).getValue();
+        int expected = 2;
+        assertEquals(actual,expected);
+    }
 }
