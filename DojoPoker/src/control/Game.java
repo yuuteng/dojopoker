@@ -17,7 +17,7 @@ public class Game {
         deck = new Deck();
         deck.shuffle();
         //three card
-        for (int i = 0; i < 26; i++) {
+        for (int i = 0; i < 5; i++) {
 
             player1.addCard(deck.draw());
             player2.addCard(deck.draw());
