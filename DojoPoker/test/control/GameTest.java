@@ -48,8 +48,8 @@ class GameTest {
         handCards1.add(card1);
         handCards2.add(card2);
         handCards2.add(card2);
-        int actual = handCards1.get(0).getValue() - handCards2.get(0).getValue();
-        int expected = 2;
+        boolean actual = handCards1.get(0).getValue() > handCards2.get(0).getValue();
+        boolean expected = true;
         assertEquals(actual,expected);
     }
 }
