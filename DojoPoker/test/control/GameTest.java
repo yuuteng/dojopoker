@@ -61,8 +61,6 @@ class GameTest {
         Player player2 = new Player("player2");
         Card card1 = new Card(Rank.FIVE);
         Card card2 = new Card(Rank.TWO);
-        List<Card> handCards1 = new ArrayList<Card>();
-        List<Card> handCards2 = new ArrayList<Card>();
         player1.addCard(card1);
         player1.addCard(card1);
         player2.addCard(card2);
@@ -72,5 +70,44 @@ class GameTest {
         assertEquals(actual,expected);
     }
 
+    @Test
+    void haveThree() {
+        Player player1 = new Player("player1");
+        Player player2 = new Player("player2");
+        Card card1 = new Card(Rank.FIVE);
+        Card card2 = new Card(Rank.TWO);
+        player1.addCard(card1);
+        player1.addCard(card1);
+        player1.addCard(card1);
+        player1.addCard(card2);
+        player2.addCard(card1);
+        player2.addCard(card2);
+        player2.addCard(card2);
+        player2.addCard(card2);
+        boolean actual = player1.haveThree() > 1 && player1.haveThree() >0;
+        boolean expected = true;
+        assertEquals(actual,expected);
+    }
+
+    @Test
+    void haveFour() {
+        Player player1 = new Player("player1");
+        Player player2 = new Player("player2");
+        Card card1 = new Card(Rank.FIVE);
+        Card card2 = new Card(Rank.TWO);
+        player1.addCard(card1);
+        player1.addCard(card1);
+        player1.addCard(card1);
+        player1.addCard(card2);
+        player1.addCard(card1);
+        player2.addCard(card2);
+        player2.addCard(card1);
+        player2.addCard(card2);
+        player2.addCard(card2);
+        player2.addCard(card2);
+        boolean actual = player1.haveFour() > 1 && player1.haveFour() >0;
+        boolean expected = true;
+        assertEquals(actual,expected);
+    }
 
 }
