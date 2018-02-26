@@ -39,6 +39,7 @@ class GameTest {
         assertEquals(actual,expected);
     }
 
+    // Little problems, need to be solved
     @Test
     void comparePair() {
         Player player1 = new Player("player1");
@@ -66,6 +67,24 @@ class GameTest {
         player2.addCard(card2);
         boolean actual = player1.havePair() > 1 && player1.havePair() >0;
         boolean expected = true;
+        assertEquals(actual,expected);
+    }
+
+    // Little problems, need to be solved
+    @Test
+    void compareThree() {
+        Player player1 = new Player("player1");
+        Player player2 = new Player("player2");
+        Card card1 = new Card(Rank.FIVE);
+        Card card2 = new Card(Rank.TWO);
+        player1.addCard(card1);
+        player1.addCard(card1);
+        player1.addCard(card1);
+        player2.addCard(card2);
+        player2.addCard(card2);
+        player2.addCard(card2);
+        int actual = game.compareThree();
+        int expected = 1;
         assertEquals(actual,expected);
     }
 
