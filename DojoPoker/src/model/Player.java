@@ -101,4 +101,20 @@ public class Player {
         }
         return 0;
     }
+
+    //have deux paire
+    public List<Card> haveTwoPair() {
+        List<Card> pairList = new ArrayList<Card>();
+        for (int i = 0; i < handCards.size(); i++) {
+            for (int j = i + 1; j < handCards.size(); j++) {
+                if (handCards.get(i).getValue() == handCards.get(j).getValue()) {
+                    pairList.add(handCards.get(i)) ;
+                }
+            }
+        }
+        if (pairList.size() == 2) {
+            return pairList;
+        }
+        return null;
+    }
 }

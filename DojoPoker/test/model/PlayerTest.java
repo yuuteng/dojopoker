@@ -3,6 +3,8 @@ package model;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
@@ -67,4 +69,16 @@ class PlayerTest {
         assertEquals(expected, actual);
     }
 
+    @Test
+    void haveTwoPaire() {
+        player.addCard(new Card(Rank.TWO));
+        player.addCard(new Card(Rank.TWO));
+        player.addCard(new Card(Rank.FOUR));
+        player.addCard(new Card(Rank.FOUR));
+        player.handleCards();
+        List<Card> testList = player.haveTwoPair();
+        int expected = 2;
+        int actual = testList.get(1).getValue();
+        assertEquals(expected, actual);
+    }
 }
