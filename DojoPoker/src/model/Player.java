@@ -92,6 +92,13 @@ public class Player {
 
     //if have suit
     public int haveSuit() {
+        if (handCards.get(0).getValue() == handCards.get(1).getValue() + 1
+                && handCards.get(1).getValue() == handCards.get(2).getValue() + 1
+                && handCards.get(2).getValue() == handCards.get(3).getValue() + 1
+                && handCards.get(3).getValue() == handCards.get(4).getValue() + 1) {
+
+            return handCards.get(0).getValue();
+        }
         return 0;
     }
 }

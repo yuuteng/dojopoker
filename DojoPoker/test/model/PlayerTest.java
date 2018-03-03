@@ -38,6 +38,7 @@ class PlayerTest {
     @Test
     void havePair() {
         player.addCard(new Card(Rank.FIVE));
+        player.addCard(new Card(Rank.FIVE));
         int expected = 5;
         int actual = player.havePair();
         assertEquals(expected, actual);
@@ -46,8 +47,24 @@ class PlayerTest {
     @Test
     void haveThree() {
         player.addCard(new Card(Rank.FIVE));
+        player.addCard(new Card(Rank.FIVE));
+        player.addCard(new Card(Rank.FIVE));
         int expected = 5;
-        int actual = player.havePair();
+        int actual = player.haveThree();
         assertEquals(expected, actual);
     }
+
+    @Test
+    void haveSuit() {
+        player.addCard(new Card(Rank.TWO));
+        player.addCard(new Card(Rank.THREE));
+        player.addCard(new Card(Rank.FOUR));
+        player.addCard(new Card(Rank.FIVE));
+        player.addCard(new Card(Rank.SIX));
+        player.handleCards();
+        int expected = 6;
+        int actual = player.haveSuit();
+        assertEquals(expected, actual);
+    }
+
 }
