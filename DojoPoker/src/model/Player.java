@@ -13,7 +13,7 @@ public class Player {
         handCards = new ArrayList<Card>();
     }
 
-    public void addCard(Card card){
+    public void addCard(Card card) {
         handCards.add(card);
     }
 
@@ -27,6 +27,7 @@ public class Player {
     public int getNumberOfHand() {
         return handCards.size();
     }
+
     public String getName() {
         return name;
     }
@@ -34,8 +35,9 @@ public class Player {
     public List<Card> getCards() {
         return handCards;
     }
+
     //sort all cards
-    public void handleCards(){
+    public void handleCards() {
         Collections.sort(handCards);
         Collections.reverse(handCards);
     }
@@ -68,7 +70,7 @@ public class Player {
         return 0;
     }
 
-    //the num of three (have) 0 don't have
+    //the num of four (have) 0 don't have
     public int haveFour() {
         for (int i = 0; i < handCards.size(); i++) {
             for (int j = i + 1; j < handCards.size(); j++) {
@@ -87,5 +89,4 @@ public class Player {
         }
         return 0;
     }
-
 }
