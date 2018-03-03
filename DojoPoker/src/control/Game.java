@@ -37,7 +37,9 @@ public class Game {
         List<Card> handCards1 = player1.getCards();
         List<Card> handCards2 = player2.getCards();
         int result = -1;
-        if (player1.haveFour() > 0 || player2.haveFour() > 0) {
+        if (player1.haveSuit() > 0 || player2.haveSuit() > 0) {
+            result = compareSuit();
+        } else if (player1.haveFour() > 0 || player2.haveFour() > 0) {
             result = compareFour();
         } else if (player1.haveThree() > 0 || player2.haveThree() > 0) {
             result = compareThree();
@@ -98,6 +100,18 @@ public class Game {
         if (player1.haveFour() == player2.haveFour()) {
             return 0;
         }else if (player1.haveFour() > player2.haveFour()) {
+            return 1;
+
+        }else{
+            return 2;
+        }
+    }
+
+    // 0 equal 1 p1win  2 p2win
+    public int compareSuit(){
+        if (player1.haveSuit() == player2.haveSuit()) {
+            return 0;
+        }else if (player1.haveSuit() > player2.haveSuit()) {
             return 1;
 
         }else{
