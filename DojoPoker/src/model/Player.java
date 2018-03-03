@@ -89,4 +89,9 @@ public class Player {
         }
         return 0;
     }
+
+    //if have suit
+    public int haveSuit() {
+        return 0;
+    }
 }
