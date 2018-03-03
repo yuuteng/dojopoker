@@ -1,5 +1,6 @@
 package control;
 
+import com.sun.org.apache.regexp.internal.REUtil;
 import model.Card;
 import model.Deck;
 import model.Player;
@@ -43,6 +44,8 @@ public class Game {
             result = compareFour();
         } else if (player1.haveThree() > 0 || player2.haveThree() > 0) {
             result = compareThree();
+        } else if (player1.haveTwoPair() != null || player2.haveTwoPair() != null) {
+            result = compareTwoPair();
         } else if (player1.havePair() > 0 || player2.havePair() > 0) {
             result = comparePair();
         } else {
@@ -118,4 +121,35 @@ public class Game {
             return 2;
         }
     }
+
+    // 0 equal 1 p1win  2 p2win
+    public int compareTwoPair(){
+        List<Card> player1Pair = player1.haveTwoPair();
+        List<Card> player2Pair = player2.haveTwoPair();
+
+        if (player1Pair != null && player2Pair == null) {
+            //player 1 have two pair ,player 2 dont have
+            return 1;
+        } else if (player1Pair == null && player2Pair != null) {
+            //player 2 have two pair ,player 1 dont have
+            return 2;
+        } else {
+            //player1 and 2 both have two pair
+            if (player1Pair.get(0).getValue() > player2Pair.get(0).getValue()) {
+                return 1;
+            } else if (player1Pair.get(0).getValue() < player2Pair.get(0).getValue()) {
+                return 2;
+            } else {
+                //first pair is equal
+                if (player1Pair.get(1).getValue() > player2Pair.get(1).getValue()) {
+                    return 1;
+                } else if (player1Pair.get(1).getValue() < player2Pair.get(1).getValue()) {
+                    return 2;
+                } else {
+                    return 0;
+                }
+            }
+        }
+    }
+
 }
