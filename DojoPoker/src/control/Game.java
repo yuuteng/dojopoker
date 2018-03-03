@@ -44,7 +44,7 @@ public class Game {
         } else if (player1.havePair() > 0 || player2.havePair() > 0) {
             result = comparePair();
         } else {
-            result = compareHighCard(handCards1,handCards2);
+            result = compareHighCard(handCards1, handCards2);
         }
         switch (result) {
             case 1:
