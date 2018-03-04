@@ -8,7 +8,9 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -34,8 +36,9 @@ class GameTest {
         List<Card> cardlist2 = new ArrayList<Card>();
         cardlist1.add(card1);
         cardlist2.add(card2);
-        int actual = game.compareHighCard(cardlist1, cardlist2);
-        int expected = 1;
+        Map<String, List<Card>> actual = game.compareHighCard(cardlist1, cardlist2);
+        Map<String, List<Card>> expected = new HashMap<>();
+        expected.put("1", cardlist1);
         assertEquals(actual,expected);
     }
 
