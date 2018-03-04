@@ -41,28 +41,30 @@ public class Game {
         String comment = "";
         if (player1.haveFlush() > 0 || player2.haveFlush() > 0) {
             result = compareFlush();
-            comment = "quinte flush de";
+            comment = "quinte flush";
         } else if (player1.haveFour() > 0 || player2.haveFour() > 0) {
             result = compareFour();
-            comment = "carré de ";
+            comment = "carré";
         }
         //full
-        //couleur
-        else if (player1.haveSuit() > 0 || player2.haveSuit() > 0) {
+        else if (player1.haveSameColor() > 0 || player2.haveSameColor() > 0) {
+            result = compareColor();
+            comment = "couleur";
+        } else if (player1.haveSuit() > 0 || player2.haveSuit() > 0) {
             result = compareSuit();
-            comment = "suite de ";
-        }  else if (player1.haveThree() > 0 || player2.haveThree() > 0) {
+            comment = "suite";
+        } else if (player1.haveThree() > 0 || player2.haveThree() > 0) {
             result = compareThree();
-            comment = "brelan de ";
+            comment = "brelan";
         } else if (player1.haveTwoPair() != null || player2.haveTwoPair() != null) {
             result = compareTwoPair();
-            comment = "deux paire de ";
+            comment = "deux paire";
         } else if (player1.havePair() > 0 || player2.havePair() > 0) {
             result = comparePair();
-            comment = "paire de ";
+            comment = "paire";
         } else {
             result = compareHighCard(handCards1, handCards2);
-            comment = "carte la plus élevée : ";
+            comment = "carte la plus élevée";
         }
         switch (result) {
             case 1:
@@ -128,6 +130,18 @@ public class Game {
         if (player1.haveSuit() == player2.haveSuit()) {
             return 0;
         }else if (player1.haveSuit() > player2.haveSuit()) {
+            return 1;
+
+        }else{
+            return 2;
+        }
+    }
+
+    // 0 equal 1 p1win  2 p2win
+    public int compareColor(){
+        if (player1.haveSameColor() == player2.haveSameColor()) {
+            return 0;
+        }else if (player1.haveSameColor() > player2.haveSameColor()) {
             return 1;
 
         }else{

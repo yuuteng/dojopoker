@@ -70,6 +70,18 @@ class PlayerTest {
     }
 
     @Test
+    void haveSameColor() {
+        player.addCard(new Card(Rank.TWO, Suit.CLUBS));
+        player.addCard(new Card(Rank.THREE, Suit.CLUBS));
+        player.addCard(new Card(Rank.FOUR, Suit.CLUBS));
+        player.addCard(new Card(Rank.FIVE, Suit.CLUBS));
+        player.addCard(new Card(Rank.SIX, Suit.CLUBS));
+        player.handleCards();
+        int expected = 6;
+        int actual = player.haveSameColor();
+        assertEquals(expected, actual);
+    }
+    @Test
     void haveTwoPaire() {
         player.addCard(new Card(Rank.TWO));
         player.addCard(new Card(Rank.TWO));

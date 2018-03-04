@@ -102,6 +102,17 @@ public class Player {
         }
         return 0;
     }
+    //if have suit
+    public int haveSameColor() {
+        if (handCards.get(0).getSuit() == handCards.get(1).getSuit()
+                && handCards.get(1).getSuit() == handCards.get(2).getSuit()
+                && handCards.get(2).getSuit() == handCards.get(3).getSuit()
+                && handCards.get(3).getSuit() == handCards.get(4).getSuit()) {
+
+            return handCards.get(0).getValue();
+        }
+        return 0;
+    }
 
     //have deux paire
     public List<Card> haveTwoPair() {
@@ -122,13 +133,8 @@ public class Player {
     //have flush
     public int haveFlush() {
         int maxNum = haveSuit();
-        if (maxNum > 0) {
-            if (handCards.get(0).getSuit() == handCards.get(1).getSuit()
-                    && handCards.get(1).getSuit() == handCards.get(2).getSuit()
-                    && handCards.get(2).getSuit() == handCards.get(3).getSuit()
-                    && handCards.get(3).getSuit() == handCards.get(4).getSuit()) {
-                return maxNum;
-            }
+        if (maxNum > 0 && haveSameColor() > 0) {
+            return maxNum;
         }
         return 0;
     }
