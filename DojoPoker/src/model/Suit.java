@@ -1,8 +1,8 @@
 package model;
 
 public enum Suit {
-    CLUBS("clubs"),DIAMONDS("diamonds"),
-    HEARTS("hearts"),SPADES("spades");
+    CLUBS("Tr"),DIAMONDS("Ca"),
+    HEARTS("Co"),SPADES("Pi");
     private final String name;
     Suit(String name) {
         this.name = name;

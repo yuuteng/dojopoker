@@ -18,10 +18,11 @@ public class Player {
     }
 
     public void showAllCard() {
+        String str = "";
         for (Card card : handCards) {
-            System.out.println(card);
+            str = str + card + " ";
         }
-
+        System.out.println(str);
     }
 
     public int getNumberOfHand() {
@@ -116,5 +117,19 @@ public class Player {
             return pairList;
         }
         return null;
+    }
+
+    //have flush
+    public int haveFlush() {
+        int maxNum = haveSuit();
+        if (maxNum > 0) {
+            if (handCards.get(0).getSuit() == handCards.get(1).getSuit()
+                    && handCards.get(1).getSuit() == handCards.get(2).getSuit()
+                    && handCards.get(2).getSuit() == handCards.get(3).getSuit()
+                    && handCards.get(3).getSuit() == handCards.get(4).getSuit()) {
+                return maxNum;
+            }
+        }
+        return 0;
     }
 }

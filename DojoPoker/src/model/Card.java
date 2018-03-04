@@ -15,12 +15,17 @@ public class Card implements Comparable{
 
     @Override
     public String toString() {
-        return "Card: "+rank.getName()+" "+ suit.getName();
+        return rank.getName() + suit.getName();
     }
 
     public int getValue() {
         return rank.getValue();
     }
+
+    public Suit getSuit() {
+        return suit;
+    }
+
     @Override
     public int compareTo(Object o) {
         if(rank.getValue()>((Card) o).getValue()){

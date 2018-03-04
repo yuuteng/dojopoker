@@ -28,9 +28,9 @@ public class Game {
     }
 
     public void show(){
-        System.out.println("Name: " + player1.getName());
+        System.out.print("Main1: ");
         player1.showAllCard();
-        System.out.println("Name: " + player2.getName());
+        System.out.print("Main2: ");
         player2.showAllCard();
     }
 
@@ -38,28 +38,41 @@ public class Game {
         List<Card> handCards1 = player1.getCards();
         List<Card> handCards2 = player2.getCards();
         int result = -1;
-        if (player1.haveSuit() > 0 || player2.haveSuit() > 0) {
-            result = compareSuit();
+        String comment = "";
+        if (player1.haveFlush() > 0 || player2.haveFlush() > 0) {
+            result = compareFlush();
+            comment = "quinte flush de";
         } else if (player1.haveFour() > 0 || player2.haveFour() > 0) {
             result = compareFour();
-        } else if (player1.haveThree() > 0 || player2.haveThree() > 0) {
+            comment = "carré de ";
+        }
+        //full
+        //couleur
+        else if (player1.haveSuit() > 0 || player2.haveSuit() > 0) {
+            result = compareSuit();
+            comment = "suite de ";
+        }  else if (player1.haveThree() > 0 || player2.haveThree() > 0) {
             result = compareThree();
+            comment = "brelan de ";
         } else if (player1.haveTwoPair() != null || player2.haveTwoPair() != null) {
             result = compareTwoPair();
+            comment = "deux paire de ";
         } else if (player1.havePair() > 0 || player2.havePair() > 0) {
             result = comparePair();
+            comment = "paire de ";
         } else {
             result = compareHighCard(handCards1, handCards2);
+            comment = "carte la plus élevée : ";
         }
         switch (result) {
             case 1:
-                System.out.println("player1 win");
+                System.out.println("La main 1 gagne avec " + comment + " win");
                 break;
             case 2:
-                System.out.println("player2 win");
+                System.out.println("La main 1 gagne avec " + comment + " win");
                 break;
             default:
-                System.out.println("Equal");
+                System.out.println("Egalite");
                 break;
         }
     }
@@ -152,4 +165,15 @@ public class Game {
         }
     }
 
+    // 0 equal 1 p1win  2 p2win
+    public int compareFlush(){
+        if (player1.haveFlush() == player2.haveFlush()) {
+            return 0;
+        }else if (player1.haveFlush() > player2.haveFlush()) {
+            return 1;
+
+        }else{
+            return 2;
+        }
+    }
 }

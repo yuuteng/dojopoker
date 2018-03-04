@@ -81,4 +81,17 @@ class PlayerTest {
         int actual = testList.get(1).getValue();
         assertEquals(expected, actual);
     }
+
+    @Test
+    void haveFlush() {
+        player.addCard(new Card(Rank.TWO, Suit.CLUBS));
+        player.addCard(new Card(Rank.THREE, Suit.CLUBS));
+        player.addCard(new Card(Rank.FOUR, Suit.CLUBS));
+        player.addCard(new Card(Rank.FIVE, Suit.CLUBS));
+        player.addCard(new Card(Rank.SIX, Suit.CLUBS));
+        player.handleCards();
+        int expected = 6;
+        int actual = player.haveFlush();
+        assertEquals(expected, actual);
+    }
 }
