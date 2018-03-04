@@ -3,14 +3,19 @@ package model;
 
 public class Card implements Comparable{
     Rank rank;
+    Suit suit;
 
     public Card(Rank rank) {
         this.rank = rank;
     }
+    public Card(Rank rank,Suit suit) {
+        this.rank = rank;
+        this.suit = suit;
+    }
 
     @Override
     public String toString() {
-        return "Card: "+rank.getName();
+        return "Card: "+rank.getName()+" "+ suit.getName();
     }
 
     public int getValue() {
