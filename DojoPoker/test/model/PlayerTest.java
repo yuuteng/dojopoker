@@ -57,6 +57,18 @@ class PlayerTest {
     }
 
     @Test
+    void haveFull() {
+        player.addCard(new Card(Rank.FIVE));
+        player.addCard(new Card(Rank.FIVE));
+        player.addCard(new Card(Rank.FIVE));
+        player.addCard(new Card(Rank.TWO));
+        player.addCard(new Card(Rank.TWO));
+        int expected = 5;
+        int actual = player.haveFull();
+        assertEquals(expected, actual);
+    }
+
+    @Test
     void haveSuit() {
         player.addCard(new Card(Rank.TWO));
         player.addCard(new Card(Rank.THREE));

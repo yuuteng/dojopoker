@@ -71,6 +71,22 @@ public class Player {
         return 0;
     }
 
+    //3+2
+    public int haveFull() {
+        int numThree = haveThree();
+        if (numThree > 0) {
+            for (int i = 0; i < handCards.size(); i++) {
+                for (int j = i + 1; j < handCards.size(); j++) {
+                    if (handCards.get(i).getValue() == handCards.get(j).getValue()
+                            && handCards.get(i).getValue() != numThree) {
+                        return numThree;
+                    }
+                }
+            }
+        }
+        return 0;
+    }
+
     //the num of four (have) 0 don't have
     public int haveFour() {
         for (int i = 0; i < handCards.size(); i++) {
