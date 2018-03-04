@@ -45,9 +45,10 @@ public class Game {
         } else if (player1.haveFour() > 0 || player2.haveFour() > 0) {
             result = compareFour();
             comment = "carré";
-        }
-        //full
-        else if (player1.haveSameColor() > 0 || player2.haveSameColor() > 0) {
+        }else if (player1.haveFull() > 0 || player2.haveFull() > 0) {
+            result = compareFull();
+            comment = "full";
+        } else if (player1.haveSameColor() > 0 || player2.haveSameColor() > 0) {
             result = compareColor();
             comment = "couleur";
         } else if (player1.haveSuit() > 0 || player2.haveSuit() > 0) {
@@ -107,6 +108,18 @@ public class Game {
         if (player1.haveThree() == player2.haveThree()) {
             return 0;
         } else if (player1.haveThree() > player2.haveThree()) {
+            return 1;
+
+        } else {
+            return 2;
+        }
+    }
+
+    // 0 equal 1 p1win  2 p2win
+    public int compareFull() {
+        if (player1.haveFull() == player2.haveFull()) {
+            return 0;
+        } else if (player1.haveFull() > player2.haveFull()) {
             return 1;
 
         } else {
