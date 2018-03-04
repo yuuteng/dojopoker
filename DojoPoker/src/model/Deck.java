@@ -9,9 +9,9 @@ public class Deck {
 
     public Deck() {
         cards = new ArrayList<Card>();
-        for (int i = 0; i < 4; i++) {
+        for (Suit suit : Suit.values()) {
             for (Rank rank : Rank.values()) {
-                cards.add(new Card(rank));
+                cards.add(new Card(rank,suit));
             }
         }
 

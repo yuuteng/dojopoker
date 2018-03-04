@@ -15,10 +15,13 @@ import static org.junit.jupiter.api.Assertions.*;
 class CardTest {
     static Card card1;
     static Card card2;
+    static Card card3;
     @BeforeAll
     static void setUp() {
         card1 = new Card(Rank.ACE);
         card2 = new Card(Rank.FIVE);
+
+        card3 = new Card(Rank.EIGHT, Suit.CLUBS);
     }
     @Test
     void compareTo() {
