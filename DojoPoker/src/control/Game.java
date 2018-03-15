@@ -1,10 +1,7 @@
 package control;
 
-import com.sun.org.apache.regexp.internal.REUtil;
 import model.Card;
-import model.Deck;
 import model.Player;
-import model.Rank;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -14,23 +11,27 @@ import java.util.Map;
 public class Game {
     private Player player1;
     private Player player2;
-    private Deck deck;
 
     public Game() {
         player1 = new Player("player1");
         player2 = new Player("player2");
-        deck = new Deck();
-        deck.shuffle();
-        //three card
-        for (int i = 0; i < 5; i++) {
-
-            player1.addCard(deck.draw());
-            player2.addCard(deck.draw());
-        }
+    }
+    public void addPlayer1Card(Card card) {
+        player1.addCard(card);
         player1.handleCards();
+    }
+    public void addPlayer2Card(Card card) {
+        player2.addCard(card);
         player2.handleCards();
     }
 
+    public Player getPlayer1() {
+        return player1;
+    }
+
+    public Player getPlayer2() {
+        return player2;
+    }
     public void show(){
         System.out.print("Main1: ");
         player1.showAllCard();
@@ -261,6 +262,8 @@ public class Game {
         } else if (player1Pair == null && player2Pair != null) {
             //player 2 have two pair ,player 1 dont have
             return 2;
+        } else if(player1Pair == null && player2Pair == null) {
+            return 0;
         } else {
             //player1 and 2 both have two pair
             if (player1Pair.get(0).getValue() > player2Pair.get(0).getValue()) {
