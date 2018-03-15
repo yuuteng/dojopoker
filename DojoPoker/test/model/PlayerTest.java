@@ -36,6 +36,15 @@ class PlayerTest {
     }
 
     @Test
+    void addCard() {
+        Player player;
+        player = new Player("player");
+        player.addCard(new Card(Rank.SIX));
+        int expected = 6;
+        int actual = player.getCards().get(0).getValue();
+        assertEquals(expected, actual);
+    }
+    @Test
     void havePair() {
         Player player;
         player = new Player("player");
