@@ -15,15 +15,11 @@ import static org.junit.jupiter.api.Assertions.*;
  * @University: University of Nice
  */
 class PlayerTest {
-    static Player player;
-
-    @BeforeAll
-    static void setUp() {
-        player = new Player("player");
-    }
 
     @Test
     void getName() {
+        Player player;
+        player = new Player("player");
         String actual = player.getName();
         String expected = "player";
         assertEquals(expected, actual);
@@ -31,6 +27,8 @@ class PlayerTest {
 
     @Test
     void getNumberOfHand() {
+        Player player;
+        player = new Player("player");
         player.addCard(new Card(Rank.FIVE));
         int expected = 1;
         int actual = player.getNumberOfHand();
@@ -39,6 +37,8 @@ class PlayerTest {
 
     @Test
     void havePair() {
+        Player player;
+        player = new Player("player");
         player.addCard(new Card(Rank.FIVE));
         player.addCard(new Card(Rank.FIVE));
         int expected = 5;
@@ -48,6 +48,8 @@ class PlayerTest {
 
     @Test
     void haveThree() {
+        Player player;
+        player = new Player("player");
         player.addCard(new Card(Rank.FIVE));
         player.addCard(new Card(Rank.FIVE));
         player.addCard(new Card(Rank.FIVE));
@@ -58,6 +60,8 @@ class PlayerTest {
 
     @Test
     void haveFull() {
+        Player player;
+        player = new Player("player");
         player.addCard(new Card(Rank.FIVE));
         player.addCard(new Card(Rank.FIVE));
         player.addCard(new Card(Rank.FIVE));
@@ -70,6 +74,8 @@ class PlayerTest {
 
     @Test
     void haveSuit() {
+        Player player;
+        player = new Player("player");
         player.addCard(new Card(Rank.TWO));
         player.addCard(new Card(Rank.THREE));
         player.addCard(new Card(Rank.FOUR));
@@ -83,6 +89,8 @@ class PlayerTest {
 
     @Test
     void haveSameColor() {
+        Player player;
+        player = new Player("player");
         player.addCard(new Card(Rank.TWO, Suit.CLUBS));
         player.addCard(new Card(Rank.THREE, Suit.CLUBS));
         player.addCard(new Card(Rank.FOUR, Suit.CLUBS));
@@ -95,6 +103,8 @@ class PlayerTest {
     }
     @Test
     void haveTwoPaire() {
+        Player player;
+        player = new Player("player");
         player.addCard(new Card(Rank.TWO));
         player.addCard(new Card(Rank.TWO));
         player.addCard(new Card(Rank.FOUR));
@@ -108,6 +118,8 @@ class PlayerTest {
 
     @Test
     void haveFlush() {
+        Player player;
+        player = new Player("player");
         player.addCard(new Card(Rank.TWO, Suit.CLUBS));
         player.addCard(new Card(Rank.THREE, Suit.CLUBS));
         player.addCard(new Card(Rank.FOUR, Suit.CLUBS));
@@ -116,6 +128,20 @@ class PlayerTest {
         player.handleCards();
         int expected = 6;
         int actual = player.haveFlush();
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    void haveFour() {
+        Player player;
+        player = new Player("player");
+        player.addCard(new Card(Rank.SIX, Suit.CLUBS));
+        player.addCard(new Card(Rank.SIX, Suit.CLUBS));
+        player.addCard(new Card(Rank.SIX, Suit.CLUBS));
+        player.addCard(new Card(Rank.SIX, Suit.CLUBS));
+        player.handleCards();
+        int expected = 6;
+        int actual = player.haveFour();
         assertEquals(expected, actual);
     }
 }
