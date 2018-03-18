@@ -54,7 +54,7 @@ Dans le fichier **model**
   > `haveFlush()`: Si `haveSuit()`et`haveSameColor()` ,on fait return de la plus grande valeur.
 
 
-Dans le fichier **control **
+Dans le fichier **control**
 
 - Game.java: Pour controller le joue.
 
@@ -87,7 +87,7 @@ Dans le fichier **control **
   > Egalite
   > ```
 
-Dans le fichier **test **
+Dans le fichier **test**
 
 - GameTest.java : On teste tous les comparations dans le fichier Game.java
 
